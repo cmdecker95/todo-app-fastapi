@@ -1,5 +1,7 @@
-const ListItem = () => {
-  return <>YO</>;
+import { Link } from "react-router-dom";
+
+const ListItem = ({ note }) => {
+  return <Link to={`/${note.id}`}>{note.body}</Link>;
 };
 
 export default ListItem;

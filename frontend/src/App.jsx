@@ -1,10 +1,19 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Note from "./pages/Note";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path={"/"} element={<Notes />} exact />
+          <Route path={"/:noteId"} element={<Note />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
