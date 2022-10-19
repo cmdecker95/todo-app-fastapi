@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useCallback } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ReactComponent as ArrowLeft } from "../assets/arrow-left.svg";
+import { ReactComponent as SaveIcon } from "../assets/save.svg";
 
 const Note = () => {
   const navigate = useNavigate();
@@ -56,21 +58,30 @@ const Note = () => {
   };
 
   return (
-    <>
-      <Link to={"/"}>Go Back</Link>
+    <div className="note">
+      <div className="note-header">
+        <h3>
+          <Link to={"/"}>
+            <ArrowLeft />
+          </Link>
+        </h3>
 
-      {noteId !== "add" && <button onClick={deleteNote}>Delete</button>}
+        {noteId !== "add" && <button onClick={deleteNote}>Delete</button>}
+      </div>
 
       <textarea
         onChange={(e) => {
           setNoteContent(e.target.value);
         }}
         value={noteContent?.content}
-        placeholder="Enter note..."
+        placeholder="Enter your note here"
+        required
       ></textarea>
 
-      <button onClick={submitNote}>Save</button>
-    </>
+      <div onClick={submitNote} className="floating-button">
+        <SaveIcon />
+      </div>
+    </div>
   );
 };
 
