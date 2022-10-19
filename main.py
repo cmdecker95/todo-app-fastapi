@@ -4,8 +4,16 @@ from pydantic import BaseModel
 from typing import Union
 
 from fastapi import Body, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 NOTES = []
 
@@ -21,6 +29,10 @@ class Note(BaseModel):
 
 @app.get("/notes")
 async def get_notes():
+    if not NOTES:
+        for i in range(3):
+            create_note(title=f"New Note {i}",
+                        content=f"Body for New Note {i}")
     return NOTES
 
 
