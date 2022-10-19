@@ -2,12 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ListItem from "../components/ListItem";
 
-// const dummyData = [
-//   { id: 1, body: "t1" },
-//   { id: 2, body: "t2" },
-//   { id: 3, body: "t3" },
-// ];
-
 const Notes = () => {
   const [notes, setNotes] = useState([]);
 
@@ -16,7 +10,7 @@ const Notes = () => {
   }, []);
 
   const getNotes = async () => {
-    const response = await fetch("http://localhost:8000/notes");
+    const response = await fetch("/notes");
     const data = await response.json();
     setNotes(data);
   };

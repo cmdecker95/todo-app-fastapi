@@ -29,10 +29,6 @@ class Note(BaseModel):
 
 @app.get("/notes")
 async def get_notes():
-    if not NOTES:
-        for i in range(3):
-            create_note(title=f"New Note {i}",
-                        content=f"Body for New Note {i}")
     return NOTES
 
 
