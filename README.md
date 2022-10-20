@@ -3,11 +3,11 @@
 As you would expect, you can perform all CRUD operations through a RESTful API:
 
 - Create a new note
-- Read all notes
+- Read one note, list all notes
 - Update an existing note
 - Delete a note
 
-> ✋🏽 For now, data saved in memory so the **data does not persist**. To connect to a database, edit `main.py` accordingly.
+> ✋🏽 For now, data is saved in memory so the **data does not persist**. To connect to a database, edit `main.py` accordingly.
 
 ### 🪄 Wanna try it out?
 
